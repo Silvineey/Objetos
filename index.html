@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos</title>
+    <script src="script.js" defer></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            text-align: center;
+            background-color: black;
+            color: white;
+            font-weight: 600;
+        }
+        .efeito1{
+            background-color: rgb(230, 88, 88);
+            transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+        .efeito2{
+            background-color: rgb(235, 23, 23);
+            transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+        .efeito3{
+            transition:all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+            background-color: black;
+        }
+        .conteiner {
+            margin: 25px 25px;
+            gap: 0.9em;
+            display: flex;
+        }
+
+        .caixa {
+            display: flex;
+            flex-direction: column;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 1em;
+            border-radius: 25px;
+        }
+
+        button:hover {
+            background-color: white;
+        }
+
+        button:active {
+            background-color: rgb(241, 235, 235);
+        }
+
+        .acao {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+
+        .oculto {
+            display: none;
+        }
+
+        .inimigo {
+            gap: 1em;
+            display: flex;
+            justify-content: center;
+        }
+        .final{
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="conteiner">
+        <div class="caixa">
+            <img title="guerreirinho" src="img/warrior.png" alt="">
+        </div>
+        <div class="caixa">
+            <img src="img/heart.png" title="vida" width="30px" alt="">
+            <div>
+                <p id="vida"></p>
+            </div>
+        </div>
+        <div class="caixa">
+            <img src="img/sword.png" title="dano" width="30px" alt="">
+            <div>
+                <p id="ataque"></p>
+            </div>
+        </div>
+        <div class="caixa">
+            <img title="dinheiro" src="img/coin.png" width="30px" alt="">
+            <div>
+                <p id="dinheiro"></p>
+            </div>
+        </div>
+    </div>
+    <!-- nivel1 -->
+    <div class="acao">
+        <div>
+            <div>
+                <button id="btn1" onclick="explorar()">Começar</button>
+                <div class="oculto" id="nivel1">
+                    <div>
+                        <img src="img/goblin.png" alt="">
+                    </div>
+                    <div>
+                        <img src="img/heart.png" width="30px" alt="">
+                        <p id="vidag"></p>
+                    </div>
+                    <div>
+                        <img src="img/sword.png" width="30px" alt="">
+                        <p id="ataqueg"></p>
+                    </div>
+                    <div>
+                        <button id="btn2" onclick="atacar1()">Atacar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- nivel 2 -->
+        <div id="nivel2" class="oculto">
+            <div>
+                <img src="img/orc.png" alt="">
+            </div>
+            <div>
+                <img src="img/heart.png" width="30px" alt="">
+                <p id="vidao"></p>
+            </div>
+            <div>
+                <img src="img/sword.png" width="30px">
+                <p id="ataqueo"></p>
+            </div>
+            <div>
+                <button id="btn3" onclick="atacar2()">Atacar</button>
+            </div>
+        </div>
+
+        <!-- final -->
+        <div style="display: none;" class="final">
+            <div>
+                <img src="img/dragon.png" width="100px" alt="">
+            </div>
+            <div>
+                <img src="img/sword.png" width="30px" alt="">
+                <p id="ataqued"></p>
+            </div>
+            <div>
+                <img src="img/heart.png" alt="">
+                <p id="vidad"></p>
+            </div>
+            <div>
+                <button onclick="atacarf()">atacar</button>
+            </div>
+        </div>
+        <div class="descanso">
+           <button onclick="descansar()">Descansar</button>
+           <button onclick="treinar()">Treinar</button>
+        </div>
+        <p id="texto"></p>
+    </div>
+</body>
+
+</html>
